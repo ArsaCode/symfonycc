@@ -3,18 +3,38 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section class="articles">
+    
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 14.10.2020 à 19h00 dans la catégorie Politique</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis corporis porro provident obcaecati, sequi praesentium.</p>
+            <p>Autem quis nesciunt repellendus adipisci et doloribus similique, excepturi enim, consequatur, possimus est! Laborum, omnis!</p>
+            <a href="" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 14.10.2020 à 19h00 dans la catégorie Politique</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Minima aspernatur fuga, sequi sed atque cupiditate! Eveniet ea ad dolore recusandae. Sit, sunt doloremque.</p>
+            <p>Nulla suscipit consequuntur corporis porro vitae excepturi, numquam exercitationem dolor blanditiis accusamus adipisci nesciunt doloremque.</p>
+            <a href="" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 14.10.2020 à 19h00 dans la catégorie Politique</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Enim iusto ab pariatur earum sint minima rerum deserunt voluptatum esse, magnam expedita eos quo.</p>
+            <p>Officia adipisci doloribus eos, quo quia earum reprehenderit odit fugit magni dolores ut voluptas? Et!</p>
+            <a href="" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/arsa/Bureau/dev/Random perso/symfonycc/src/Controller/BlogController.php'|file_link(0) }}">src/Controller/BlogController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/arsa/Bureau/dev/Random perso/symfonycc/templates/blog/index.html.twig'|file_link(0) }}">templates/blog/index.html.twig</a></code></li>
-    </ul>
-</div>
+</section>
 {% endblock %}
