@@ -26,4 +26,12 @@ class BlogController extends AbstractController
             "title" => "Bienvenue dans ce blog",
         ]);
     }
+
+    /**
+     * @Route("/blog/12", name="show")
+     */
+    public function show()
+    {
+        return $this->render('blog/article.html.twig');
+    }
 }
