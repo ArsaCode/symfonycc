@@ -1,7 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block body %} 
-<h1>{{title}}</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quasi ea atque doloribus eveniet, rerum ex explicabo quisquam enim fugit necessitatibus modi repudiandae cumque quae tempora possimus deserunt reprehenderit et libero quam inventore quia, eum, vitae aut? Neque, obcaecati qui.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis soluta libero mollitia sapiente, laudantium aliquam commodi sed incidunt accusamus culpa rem laborum odio fuga? Laborum corporis recusandae laboriosam ex asperiores, quae consequuntur commodi suscipit expedita qui ipsum, aspernatur quibusdam ad!</p>
+{% block title %}Welcome to SymBlog !{% endblock %}
+
+{% block body %}
+<section class="articles">
+    {% for article in articles %}
+    <article>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }} à {{ article.date | date('H:i') }}</div>
+        <div class="content">
+            <img src={{ article.image }} alt="">
+            {{ article.content | raw }}
+            <a href="{{ path('show', {'id':article.id}) }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+    {% endfor %}
+</section>
 {% endblock %}
