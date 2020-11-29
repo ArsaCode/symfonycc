@@ -7,8 +7,6 @@
 {% block body %}
     <h1>Créer un article</h1>
 
-    <form action="" method="POST">
-        <input type="text" name="title" placeholder="Titre de l'article">
-        <textarea name="content" rows="10"></textarea>
-    </form>
+    {{ form(formArticle) }}
+    
 {% endblock %}

@@ -10,7 +10,7 @@
         <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }} à {{ article.date | date('H:i') }}</div>
         <div class="content">
             <img src={{ article.image }} alt="">
-            {{ article.content | raw }}
+            <p>{{ article.content }}</p>
             <a href="{{ path('show', {'id':article.id}) }}" class="btn btn-primary">Lire la suite</a>
         </div>
     </article>
