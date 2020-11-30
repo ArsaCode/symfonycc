@@ -18,6 +18,8 @@ Article {{ article.id }}
         <hr>
     </article>
 
+    <h1>Commentaires</h1>
+    <hr>
     <section id="comments">
     {% for comment in article.comments %}
         <div class="comment">
@@ -32,5 +34,19 @@ Article {{ article.id }}
         </div>
         <hr>
     {% endfor %}
+    {% if app.user %}
+        {{ form_start(commentForm) }}
+
+        {{ form_row(commentForm.author, {'attr' : {'placeholder' : 'Votre pseudo', 'readonly' : 'readonly', 'value' : app.user.username }, 'label': 'Pseudo'}) }}
+
+        {{ form_row(commentForm.content, {'attr' : {'placeholder' : 'Votre commentaire' }, 'label': 'Commentaire'}) }}
+
+        <button type="submit" class="btn btn-success">
+            Poster mon commentaire
+        </button>
+        {{ form_end(commentForm) }}
+    {% else %}
+        <a href="{{ path('login') }}" class="btn btn-success">Connectez-vous pour poster un commentaire</a>
+    {% endif %}
     </section>
 {% endblock %}

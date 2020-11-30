@@ -5,18 +5,31 @@
 {% endblock %}
 
 {% block body %}
-<section class="articles">
-    {% for article in articles %}
-    <article>
-        <h2>{{ article.title }}</h2>
-        <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }} à {{ article.date | date('H:i') }} - Catégorie <b>{{ article.category.title }}</b></div>
-        <div class="content">
-            <img src={{ article.image }} alt="">
-            <p>{{ article.content }}</p>
-            <a href="{{ path('show', {'id':article.id}) }}" class="btn btn-primary">Lire la suite</a>
+    {% if app.user %}
+        <div>
+            <p>
+                Bienvenue, <b>{{ app.user.username }}</b>
+            </p>
         </div>
-    </article>
-    <hr>
-    {% endfor %}
-</section>
+    {% else %}
+        <div>
+            <p>
+                Vous n'êtes pas connecté.
+            </p>
+        </div>
+    {% endif %}
+    <section class="articles">
+        {% for article in articles %}
+        <article>
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }} à {{ article.date | date('H:i') }} - Catégorie <b>{{ article.category.title }}</b></div>
+            <div class="content">
+                <img src={{ article.image }} alt="">
+                <p>{{ article.content }}</p>
+                <a href="{{ path('show', {'id':article.id}) }}" class="btn btn-primary">Lire la suite</a>
+            </div>
+        </article>
+        <hr>
+        {% endfor %}
+    </section>
 {% endblock %}
