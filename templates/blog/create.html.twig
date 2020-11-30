@@ -11,7 +11,13 @@
 {% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-	<h1>Créer un article</h1>
+	<h1>
+		{% if editing %}
+			Modifier l'article
+		{% else %}
+			Créer un article
+		{% endif %}
+	</h1>
 
 	{{ form_start(formArticle) }}
 
