@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block body %}
+    <h1>Créer un compte</h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.username, {'label' : 'Pseudo', 'attr': {'placeholder' : 'Votre pseudo'}}) }}
+
+    {{ form_row(form.email, {'label' : 'E-mail', 'attr': {'placeholder' : 'Votre e-mail'} }) }}
+    
+    {{ form_row(form.password, {'label' : 'Mot de passe', 'attr': {'placeholder' : 'Votre mot de passe'}, 'type':'password' }) }}
+    
+    {{ form_row(form.confirmation, {'label' : 'Confirmation', 'attr': {'placeholder' : 'Confirmez votre mot de passe'}, 'type':'password' }) }}
+
+    <button type="submit" class="btn btn-success">Inscription</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}

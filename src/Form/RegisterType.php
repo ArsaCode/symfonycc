@@ -15,6 +15,7 @@ class RegisterType extends AbstractType
             ->add('username')
             ->add('email')
             ->add('password')
+            ->add('confirmation')
         ;
     }
 
