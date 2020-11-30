@@ -1,12 +1,19 @@
 {% extends "base.html.twig" %}
 
+{% block title %}
+Article {{ article.id }}
+{% endblock %}
+
 {% block body %}
     <article>
         <h2>{{ article.title }}</h2>
         <div class="metadata">Ecrit le {{ article.date | date('d/m/Y') }} à {{ article.date | date('H:i') }}</div>
         <div class="content">
             <img src={{ article.image }} alt="">
+            <br>
             {{ article.content | raw }}
         </div>
+        <hr>
+        <a href="{{ path('edit', {'id':article.id}) }}" class="btn btn-primary">Modifier cet article</a>
     </article>
 {% endblock %}

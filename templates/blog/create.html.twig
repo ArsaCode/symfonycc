@@ -1,12 +1,33 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Créer un article
+	{% if editing %}
+		Modifier l'article
+	{% else %}
+		Créer un article
+	{% endif %}
 {% endblock %}
 
-{% block body %}
-    <h1>Créer un article</h1>
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
 
-    {{ form(formArticle) }}
-    
+{% block body %}
+	<h1>Créer un article</h1>
+
+	{{ form_start(formArticle) }}
+
+	{{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}, 'label': "Titre"}) }}
+
+	{{ form_row(formArticle.content, {'attr': {'placeholder': "Contenu de l'article"}, 'label': "Contenu"}) }}
+
+	{{ form_row(formArticle.image, {'attr': {'placeholder': "Image de l'article"}, 'label': "Image"}) }}
+
+	<button type="submit" class="btn btn-success">
+		{% if editing %}
+			Modifier
+		{% else %}
+			Poster
+		{% endif %}
+	</button>
+	{{ form_end(formArticle) }}
+
 {% endblock %}
